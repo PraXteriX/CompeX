@@ -1,7 +1,7 @@
-import { background } from '@storybook/theming';
-import React, { FunctionComponent } from 'react';
-import styled, { css, StyledComponent } from 'styled-components';
-import lockIcon from '../../assets/icons/lock-24px.svg';
+import { background } from "@storybook/theming";
+import React, { FunctionComponent } from "react";
+import styled, { css, StyledComponent } from "styled-components";
+import lockIcon from "../../assets/icons/lock-24px.svg";
 
 export type buttonProps = {
   options?: buttonOptions;
@@ -46,7 +46,7 @@ const StyledButton = styled.button<buttonOptions>`
   font-size: var(--font-size-button);
   line-height: var(--line-height-button);
   letter-spacing: 1px;
-  color: var(--color-text-01);
+  color: rgb(2, 156, 253);
   min-width: 11rem; /* 176px */
   position: relative;
   overflow: hidden;
@@ -60,7 +60,7 @@ const StyledButton = styled.button<buttonOptions>`
 
   &:before {
     position: absolute;
-    content: '';
+    content: "";
     height: 100%;
     width: 100%;
     left: 0;
@@ -75,7 +75,7 @@ const StyledButton = styled.button<buttonOptions>`
 
   &:after {
     position: absolute;
-    content: '';
+    content: "";
     height: 100%;
     width: 0;
     left: 0;
@@ -168,8 +168,8 @@ const StyledButton = styled.button<buttonOptions>`
 
         &:before {
           display: block;
-          content: '';
-          background-image: url('${lockIcon}');
+          content: "";
+          background-image: url("${lockIcon}");
           background-repeat: no-repeat;
           background-size: 18px;
           width: 1.1rem;
