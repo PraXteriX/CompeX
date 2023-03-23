@@ -1,0 +1,14 @@
+@use '../abstract/util.scss';
+
+$content-padding: (
+  xs: util.to-rem(12px),
+  md: util.to-rem(22px),
+  xl: util.to-rem(28px),
+);
+
+$grid-gap: (
+  xs: util.to-rem(24px),
+  md: util.to-rem(40px),
+  lg: util.to-rem(44px),
+  xl: util.to-rem(56px),
+);

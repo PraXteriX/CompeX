@@ -1,0 +1,156 @@
+import { Meta, Typeset } from '@storybook/addon-docs';
+
+<Meta title="Base/Typography" />
+
+# Fonts
+
+export const SampleText =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+export const lubalin = {
+  type: {
+    primary: 'Lubalin Graph ECG',
+  },
+  weight: {
+    regular: '400',
+    medium: '500',
+  },
+  size: {
+    s1: 12,
+    s2: 14,
+    s3: 16,
+    m1: 20,
+    m2: 24,
+    m3: 28,
+    l1: 32,
+    l2: 40,
+    l3: 48,
+  },
+};
+
+export const openSans = {
+  type: {
+    primary: 'Open Sans',
+  },
+  weight: {
+    light: '300',
+    regular: '400',
+    semibold: '600',
+  },
+  size: {
+    s1: 12,
+    s2: 14,
+    s3: 16,
+    m1: 20,
+    m2: 24,
+    m3: 28,
+    l1: 32,
+    l2: 40,
+    l3: 48,
+  },
+};
+
+## Lubalin
+
+**Font:** Lubalin Graph ECG  
+**Weights:** 400(regular), 500(medium)
+
+### Regular
+
+<Typeset
+  fontSizes={[
+    Number(lubalin.size.s1),
+    Number(lubalin.size.s2),
+    Number(lubalin.size.s3),
+    Number(lubalin.size.m1),
+    Number(lubalin.size.m2),
+    Number(lubalin.size.m3),
+    Number(lubalin.size.l1),
+    Number(lubalin.size.l2),
+    Number(lubalin.size.l3),
+  ]}
+  fontWeight={lubalin.weight.regular}
+  sampleText={SampleText}
+  fontFamily={lubalin.type.primary}
+/>
+
+### Medium
+
+<Typeset
+  fontSizes={[
+    Number(lubalin.size.s1),
+    Number(lubalin.size.s2),
+    Number(lubalin.size.s3),
+    Number(lubalin.size.m1),
+    Number(lubalin.size.m2),
+    Number(lubalin.size.m3),
+    Number(lubalin.size.l1),
+    Number(lubalin.size.l2),
+    Number(lubalin.size.l3),
+  ]}
+  fontWeight={lubalin.weight.medium}
+  sampleText={SampleText}
+  fontFamily={lubalin.type.primary}
+/>
+
+## Open Sans
+
+**Font:** Open Sans  
+**Weights:** 300(light ) 400(regular), 800(semibold)
+
+### Light
+
+<Typeset
+  fontSizes={[
+    Number(openSans.size.s1),
+    Number(openSans.size.s2),
+    Number(openSans.size.s3),
+    Number(openSans.size.m1),
+    Number(openSans.size.m2),
+    Number(openSans.size.m3),
+    Number(openSans.size.l1),
+    Number(openSans.size.l2),
+    Number(openSans.size.l3),
+  ]}
+  fontWeight={openSans.weight.light}
+  sampleText={SampleText}
+  fontFamily={openSans.type.primary}
+/>
+
+### Regular
+
+<Typeset
+  fontSizes={[
+    Number(openSans.size.s1),
+    Number(openSans.size.s2),
+    Number(openSans.size.s3),
+    Number(openSans.size.m1),
+    Number(openSans.size.m2),
+    Number(openSans.size.m3),
+    Number(openSans.size.l1),
+    Number(openSans.size.l2),
+    Number(openSans.size.l3),
+  ]}
+  fontWeight={openSans.weight.regular}
+  sampleText={SampleText}
+  fontFamily={openSans.type.primary}
+/>
+
+### Semibold
+
+<Typeset
+  fontSizes={[
+    Number(openSans.size.s1),
+    Number(openSans.size.s2),
+    Number(openSans.size.s3),
+    Number(openSans.size.m1),
+    Number(openSans.size.m2),
+    Number(openSans.size.m3),
+    Number(openSans.size.l1),
+    Number(openSans.size.l2),
+    Number(openSans.size.l3),
+  ]}
+  fontWeight={openSans.weight.semibold}
+  sampleText={SampleText}
+  fontFamily={openSans.type.primary}
+/>

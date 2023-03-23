@@ -1,0 +1,116 @@
+@use './media.scss';
+@use './util.scss';
+
+@mixin heading($type: 1) {
+  @if($type ==1) {
+    font-weight: 600;
+    font-family: 'Lubalin Graph ECG Demi';
+    font-size: util.to-rem(34px);
+    letter-spacing: 0;
+    line-height: util.to-rem(48px);
+
+    @include media.screen-min(md) {
+      font-size: util.to-rem(40px);
+      letter-spacing: 0;
+      line-height: util.to-rem(56px);
+    }
+
+    @include media.screen-min(xl) {
+      font-size: util.to-rem(50px);
+      line-height: util.to-rem(65px);
+    }
+
+  }
+
+  @if($type ==2) {
+    font-family: 'Open Sans Semibold';
+    font-size: util.to-rem(35px);
+    font-weight: 600;
+    letter-spacing: util.to-rem(-0.3px);
+    line-height: util.to-rem(52px);
+
+    @include media.screen-min(xl) {
+      font-size: util.to-rem(45px);
+      line-height: util.to-rem(64px);
+    }
+  }
+
+  @if($type ==3) {
+    font-family: 'Open Sans Regular';
+    font-size: util.to-rem(30px);
+    font-weight: 300;
+    letter-spacing: util.to-rem(-0.3px);
+    line-height: util.to-rem(44px);
+
+    @include media.screen-min(xl) {
+      font-size: util.to-rem(36px);
+      line-height: util.to-rem(50px);
+    }
+
+  }
+
+  @if($type ==4) {
+    font-family: 'Open Sans Semibold';
+    font-size: util.to-rem(20px);
+    font-weight: 600;
+    letter-spacing: util.to-rem(-0.3px);
+    line-height: util.to-rem(28px);
+
+    @include media.screen-min(xl) {
+      font-size: util.to-rem(22px);
+      line-height: util.to-rem(32px);
+    }
+  }
+
+  @if($type ==5) {
+    font-family: 'Open Sans Bold';
+    font-size: util.to-rem(16px);
+    font-weight: 700;
+    letter-spacing: util.to-rem(1px);
+    line-height: util.to-rem(24px);
+    text-transform: uppercase;
+
+    @include media.screen-min(md) {
+      line-height: util.to-rem(24px);
+    }
+
+    @include media.screen-min(xl) {
+      font-size: util.to-rem(18px);
+      line-height: util.to-rem(30px);
+    }
+  }
+}
+
+@mixin body($size: normal) {
+  @if($size ==normal) {
+    font-size: util.to-rem(16px);
+    letter-spacing: 0;
+    line-height: util.to-rem(26px);
+
+    @include media.screen-min(md) {
+      font-size: util.to-rem(17px);
+      line-height: util.to-rem(30px);
+    }
+
+    @include media.screen-min(xl) {
+      font-size: util.to-rem(18px);
+      line-height: util.to-rem(32px);
+    }
+  }
+
+  @if($size ==small) {
+    font-size: util.to-rem(14px);
+    letter-spacing: 0;
+    line-height: util.to-rem(22px);
+
+    @include media.screen-min(md) {
+      font-size: util.to-rem(15px);
+      line-height: util.to-rem(24px);
+    }
+
+    @include media.screen-min(xl) {
+      font-size: util.to-rem(16px);
+      line-height: util.to-rem(26px);
+    }
+  }
+}

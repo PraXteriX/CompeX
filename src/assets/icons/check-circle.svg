@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>32F1F7A4-300E-4573-BD96-A94FBF4F4594</title>
+    <desc>Check circle</desc>
+    <defs>
+        <path d="M22,3 C11.5,3 3,11.5 3,22 C3,32.5 11.5,41 22,41 C32.5,41 41,32.5 41,22 C41,11.5 32.5,3 22,3 Z M22,0 C34.2,0 44,9.8 44,22 C44,34.2 34.2,44 22,44 C9.8,44 0,34.2 0,22 C0,9.8 9.8,0 22,0 Z M18,26.8 L31.2,13.6 L33,15.4 L24.0237305,24.3762695 L18,30.4 L11,23.4 L12.8,21.6 L18,26.8 Z" id="path-1"></path>
+    </defs>
+    <mask id="mask-2" fill="white">
+        <use xlink:href="#path-1"></use>
+    </mask>
+    <use id="Mask" fill="#f5c430" fill-rule="nonzero" xlink:href="#path-1"></use>
+</svg>

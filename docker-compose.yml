@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:latest
+    labels:
+      - 'traefik.enable=true'
+      - 'trafik.docker.network=${TRAEFIK_NETWORK}'
+      - 'traefik.http.routers.${TRAEFIK_UNIQUE_ROUTE}.entrypoints=web'
+      - 'traefik.http.routers.${TRAEFIK_UNIQUE_ROUTE}.rule=Host(`${REVIEW_APP_HOSTNAME}`)'
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./storybook-static:/usr/share/nginx/html
+    networks:
+      - proxy_network
+    restart: unless-stopped
+
+networks:
+  proxy_network:
+    external:
+      name: ${TRAEFIK_NETWORK}

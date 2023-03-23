@@ -1,0 +1,114 @@
+stages:
+  - build
+  - deploy
+  - post-deploy
+
+variables:
+  DEPLOY_SERVER: agent-cooper.se.axis.com
+  REVIEWAPPS_PATH: /srv/review-apps/$CI_PROJECT_NAME/$CI_COMMIT_REF_SLUG
+  REVIEWAPPS_URL: ui-storybook.$CI_COMMIT_REF_SLUG.$DEPLOY_SERVER
+
+image: node:16
+
+build:
+  stage: build
+  before_script:
+    - npm config set proxy http://wwwproxy.se.axis.com:3128/
+    - npm config set https-proxy http://wwwproxy.se.axis.com:3128/
+    - yarn install
+  script:
+    - yarn build
+    - yarn build-storybook-docs
+  cache:
+    untracked: true
+    paths:
+      - 'node_modules'
+  artifacts:
+    untracked: true
+    expire_in: '1 week'
+    paths:
+      - 'node_modules/'
+      - 'dist/'
+      - 'storybook-static/'
+
+.deploy_template: &deploy_definition
+  image: ubuntu
+  before_script:
+    # Fail if no SSH key is available
+    - if [ -z "$SSH_PRIVATE_KEY" ]; then echo "Missing SSH Private key"; exit 1; fi
+
+    # Configure Axis proxy settings
+    - export http_proxy=http://wwwproxy.se.axis.com:3128
+    - export https_proxy=http://wwwproxy.se.axis.com:3128
+
+    # Install ssh client
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+
+    # Start ssh-agent where we'll store our ssh private key
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+
+    # Add to known_hosts
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan $DEPLOY_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+
+deploy_review:
+  <<: *deploy_definition
+  stage: deploy
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    url: http://ui-storybook.$CI_COMMIT_REF_SLUG.$DEPLOY_SERVER
+    on_stop: stop_review
+  only:
+    - branches
+  script:
+    - ssh webteam@$DEPLOY_SERVER rm -rf "$REVIEWAPPS_PATH"
+    - ssh webteam@$DEPLOY_SERVER mkdir -p "$REVIEWAPPS_PATH"
+    - echo TRAEFIK_NETWORK=traefik2_default > .env
+    - echo REVIEWAPP_HOSTNAME=$REVIEWAPPS_URL >> .env
+    - echo TRAEFIK_UNIQUE_ROUTE=$CI_COMMIT_REF_SLUG >> .env
+    - scp -r storybook-static .env docker-compose.yml nginx.conf webteam@$DEPLOY_SERVER:"$REVIEWAPPS_PATH"
+    - ssh webteam@$DEPLOY_SERVER "cd "$REVIEWAPPS_PATH" && docker-compose config"
+    - ssh webteam@$DEPLOY_SERVER "cd "$REVIEWAPPS_PATH" && docker-compose down"
+    - ssh webteam@$DEPLOY_SERVER "cd "$REVIEWAPPS_PATH" && docker-compose up -d"
+  dependencies:
+    - build
+
+test_storybook:
+  stage: post-deploy
+  image: mcr.microsoft.com/playwright:v1.24.0-focal
+  before_script:
+    - export https_proxy=https://wwwproxy.se.axis.com:3128/
+    - export http_proxy=https://wwwproxy.se.axis.com:3128/
+    - npm config set proxy http://wwwproxy.se.axis.com:3128/
+    - npm config set https-proxy http://wwwproxy.se.axis.com:3128/
+    - npx playwright install
+  script:
+    - yarn test-storybook --no-stories-json --junit
+  variables:
+    TARGET_URL: http://ui-storybook.$CI_COMMIT_REF_SLUG.$DEPLOY_SERVER
+  artifacts:
+    when: always
+    paths:
+      - junit.xml
+    reports:
+      junit: junit.xml
+  dependencies:
+    - 'build'
+    - 'deploy_review'
+
+stop_review:
+  <<: *deploy_definition
+  stage: deploy
+  script:
+    - ssh webteam@$DEPLOY_SERVER docker-compose -f "$REVIEWAPPS_PATH"/docker-compose.yml down
+    - ssh webteam@$DEPLOY_SERVER rm -rf $REVIEWAPPS_PATH
+  when: manual
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    action: stop
+  only:
+    - branches
+  dependencies: []

@@ -1,0 +1,21 @@
+@use '../variables/colors';
+
+@function var($var) {
+  @if map-has-key(colors.$vars, $var) {
+    @return map-get(colors.$vars, $var);
+  }
+
+  @else {
+    @error 'No color variable matching that name. Check color map och spelling';
+  }
+}
+
+@function map($color, $variant: 4) {
+  @if map-has-key(colors.$map, $color) {
+    @return map-get(colors.$map, $color, $variant);
+  }
+
+  @else {
+    @error 'No map matching that name. Check spelling or colors file.';
+  }
+}

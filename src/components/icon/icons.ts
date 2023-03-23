@@ -1,0 +1,28 @@
+export const icons = [
+  'add',
+  'arrow-right',
+  'arrow-up',
+  'chat',
+  'checkbox-checked',
+  'checkbox-unchecked',
+  'chevron-down',
+  'chevron-left',
+  'chevron-right',
+  'chevron-up',
+  'copy',
+  'dismiss',
+  'download',
+  'error-circle',
+  'eye-hide',
+  'eye-show',
+  'lock-closed',
+  'question-circle',
+  'radio-checked',
+  'radio-unchecked',
+  'star-filled',
+  'star-half',
+  'star-outlined',
+  'window-new',
+] as const;
+
+export type IconsType = typeof icons[number];

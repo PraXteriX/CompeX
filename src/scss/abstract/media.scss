@@ -1,0 +1,13 @@
+@use '../variables/breakpoints';
+
+@mixin screen-min($breakpoint) {
+  @if map-has-key(breakpoints.$breakpoints, $breakpoint) {
+    @media screen and (min-width: map-get(breakpoints.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "You did something wrong, check available breakpoints. sm, md...";
+  }
+}

@@ -1,0 +1,326 @@
+:root {
+  /* By color */
+  --color-yellow-01: #fffae9;
+  --color-yellow-02: #fff0c5;
+  --color-yellow-03: #ffdb6e;
+  --color-yellow-04: #ffcc33; /* --color-brand-01 */
+  --color-yellow-05: #f5c430;
+  --color-yellow-06: #e7ac00;
+  --color-yellow-07: #bc8d00;
+  --color-yellow-08: #8d6900;
+
+  --color-warm-gray-01: #faf8f6;
+  --color-warm-gray-02: #f7f3f1;
+  --color-warm-gray-03: #e6e3e0;
+  --color-warm-gray-04: #d8cfc6; /* --color-brand-02 */
+
+  --color-warm-gray-06: #9a8b7d; /* --color-brand-03 */
+
+  --color-red-01: #fff5f7; /* --color-danger-secondary */
+
+  --color-red-04: #ff0033; /* --color-brand-05 */
+
+  --color-red-06: #b5121b; /* --color-brand-04 */
+  --color-red-07: #670014;
+
+  --color-green-01: #f4f9ec;
+  --color-green-02: #8dc63f;
+  --color-green-03: #557726;
+
+  --color-blue-01: #eff9ff;
+
+  --color-blue-03: #72cdf4; /* --color-brand-09 */
+  --color-blue-04: #009ddc; /* --color-brand-08 */
+
+  --color-blue-07: #004966;
+
+  --color-gray-01: #e6e5e5;
+  --color-gray-02: #cccccc;
+
+  --color-gray-04: #8c8c8c;
+  --color-gray-05: #666666;
+  --color-gray-06: #555555;
+  --color-gray-07: #444444;
+  --color-gray-08: #333333;
+
+  --color-table-gray: rgba(0, 0, 0, 0.07);
+
+  /* The custom properties are valid from mobile and up, unless overridden in media queries */
+  --primary-action-color: #fc3;
+  --primary-color-high-contrast: #f5c430;
+  --primary-action-color-dark: #f0b400;
+  --dark-text-color: #010;
+  --background-secondary-light: #f4f1ee;
+  --background-secondary-light-darken: #d4d1dd;
+
+  /* Primary colors */
+  --color-brand-01: #fc3;
+  --color-brand-02: #d8cfc6;
+  --color-brand-03: #9a8b7d;
+
+  /* Secondary colors */
+  --color-brand-04: #b5121b;
+  --color-brand-05: #f03;
+  --color-brand-08: #009ddc;
+  --color-brand-09: #72cdf4;
+  --color-brand-10: #8dc63f;
+
+  /* UI colors */
+  --color-ui-01: #fff;
+  --color-ui-02: #333;
+
+  /* Text colors */
+  --color-text-01: rgba(0, 0, 0, 0.8);
+  --color-text-link: #333;
+
+  /* Link state colors */
+  --color-text-link-hover: #333;
+  --color-text-link-visited: #838383;
+  --color-text-link-active: #838383;
+  --color-text-link-focus: #333;
+
+  /* Misc colors */
+  --support-panel-bg-main: #088ac2;
+  --support-panel-bg-highlight: #00a6e8;
+
+  /* Semantics */
+  --color-status-primary: var(--color-blue-04);
+  --color-status-secondary: var(--color-blue-01);
+  --color-status-text: var(--color-blue-07);
+  --color-warning-primary: var(--color-red-04);
+  --color-warning-secondary: var(--color-red-01);
+  --color-warning-text: var(--color-red-07);
+  --color-danger-primary: var(--color-yellow-04);
+  --color-danger-secondary: var(--color-yellow-01);
+  --color-danger-text: var(--color-yellow-08);
+
+  /* Widths & paddings */
+  --default-padding: 15px;
+  --col-padding: 0.75rem; /* 12px; */
+  --col-gutter: 1.5rem; /* 24px, col-gutter is twice the size of col-padding, defined to avoid use of calc() function */
+  --container-padding: 0.75rem; /* 12px */
+  --outer-padding: 1.5rem; /* 24px, outer-padding is the sum of col-padding and container-padding */
+  --container-width: 100%;
+  --content-width: 100%; /* Simulate grid, see tablet media query below for more details */
+
+  --sticky-padding: 4.25rem; /* 68px */
+
+  /* Font settings */
+  --font-size-default: 1rem; /* 16px */
+  --letter-spacing-default: 0.0125rem; /* 0.2px */
+  --line-height-default: 1.75; /* 28px */
+
+  --font-size-small: 0.9375rem; /* 15px */
+  --letter-spacing-small: 0.01125rem; /* 0.18px */
+  --line-height-small: 1.4; /* 21px */
+
+  --font-size-x-small: 0.8125rem; /* 13px */
+  --letter-spacing-x-small: 0.0093rem; /* 0.15px */
+  --line-height-x-small: 1.53846; /* 20px */
+
+  --font-size-button: 0.875rem; /* 14px */
+  --letter-spacing-button: 0.0125rem; /* 0.2px */
+  --line-height-button: 1.35714; /* 19px */
+
+  --font-size-button-large: 0.875rem; /* 14px */
+  --letter-spacing-button-large: 0.0125rem; /* 0.2px */
+  --line-height-button-large: 1.71428; /* 24px */
+
+  /* Other */
+  --tabs-height: 64px;
+  --outline: 1px dotted #333;
+  --animation-speed: 0.3s;
+  --animation-speed-slow: 0.5s;
+  --animation-speed-fast: 0.15s;
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --card-border-radius: 5px;
+  --border-radius-default: 4px;
+  --section-spacing: 3.75rem; /* 60px */
+  --section-spacing-grid: 3rem; /* 48px */
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Small mode only */
+  :root {
+    --col-padding: 1.25rem; /* 20px; */
+    --col-gutter: 2.5rem; /* 40px */
+    --container-padding: 1.5rem; /* 24px */
+    --outer-padding: 2.75rem; /* 44px */
+    --container-width: 768px;
+    --content-width: 680px; /* Simulates the width of a col-xs-12 in a row in a container minus their paddings, can be used to eliminate the need for grid markup */
+    --section-spacing: 4.375rem; /* 70px */
+    --section-spacing-grid: 3.125rem; /* 50px */
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1359px) {
+  /* Medium mode only */
+  :root {
+    --col-padding: 1.375rem; /* 22px; */
+    --col-gutter: 2.75rem; /* 44px */
+    --container-padding: 0.125rem; /* 2px */
+    --outer-padding: 1.5rem; /* 24px */
+    --container-width: 1024px;
+    --content-width: 976px;
+    --section-spacing-grid: 4.875rem; /* 78px */
+
+    /* Font settings */
+    --font-size-default: 1.0625rem; /* 17px */
+    --letter-spacing-default: 0.0125rem; /* 0.2px */
+    --line-height-default: 1.7647; /* 30px */
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /* Medium mode and up */
+  :root {
+    /* Font settings */
+    --font-size-small: 1.125rem; /* 18px */
+    --letter-spacing-small: 0.0125rem; /* 0.2px */
+    --line-height-small: 1.6666; /* 30px */
+
+    --font-size-x-small: 0.875rem; /* 14px */
+    --letter-spacing-x-small: 0.0093rem; /* 0.15px */
+    --line-height-x-small: 1.7142; /* 24px */
+
+    --font-size-button: 0.875rem; /* 14px */
+    --letter-spacing-button: 0.075rem; /* 1.2px */
+
+    --font-size-button-large: 1.125rem; /* 18px */
+    --letter-spacing-button-large: 0.05rem; /* 0.8px */
+    --line-height-button-large: 1.66666; /* 30px */
+
+    --tabs-height: 70px;
+    --sticky-padding: 5.375rem; /* 86px */
+
+    --section-spacing: 6.25rem; /* 100px */
+  }
+}
+
+@media only screen and (min-width: 1360px) {
+  /* Large mode and up */
+  :root {
+    --col-padding: 1.75rem; /* 28px */
+    --col-gutter: 3.5rem; /* 56px */
+    --container-padding: 0.125rem; /* 2px */
+    --outer-padding: 1.875rem; /* 30px */
+    --container-width: 1360px;
+    --content-width: 1300px;
+    --section-spacing-grid: 4.5rem; /* 72px */
+
+    /* Font settings */
+    --font-size-default: 1.125rem; /* 18px */
+    --letter-spacing-default: 0.01875rem; /* 0.3px */
+    --line-height-default: 1.77777; /* 32px */
+  }
+}
+
+@font-face {
+  font-family: 'Lubalin Graph ECG';
+  src: url('./assets/fonts/lubalin-graph-ecg/lubalingraphecg-book.eot');
+  src: url('./assets/fonts/lubalin-graph-ecg/lubalingraphecg-book.eot?#iefix')
+      format('embedded-opentype'),
+    url('./assets/fonts/lubalin-graph-ecg/lubalingraphecg-book.woff')
+      format('woff'),
+    url('./assets/fonts/lubalin-graph-ecg/lubalingraphecg-book.ttf')
+      format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lubalin Graph ECG';
+  src: url('./assets/fonts/lubalin-graph-ecg/lubalingraphecg-demi.eot');
+  src: url('./assets/fonts/lubalin-graph-ecg/lubalingraphecg-demi.eot?#iefix')
+      format('embedded-opentype'),
+    url('./assets/fonts/lubalin-graph-ecg/lubalingraphecg-demi.woff')
+      format('woff'),
+    url('./assets/fonts/lubalin-graph-ecg/lubalingraphecg-demi.ttf')
+      format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./assets/fonts/open-sans/opensans-light-webfont.woff2')
+      format('woff2'),
+    url('./assets/fonts/open-sans/opensans-light-webfont.woff') format('woff');
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./assets/fonts/open-sans/opensans-regular-webfont.woff2')
+      format('woff2'),
+    url('./assets/fonts/open-sans/opensans-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./assets/fonts/open-sans/opensans-semibold-webfont.woff2')
+      format('woff2'),
+    url('./assets/fonts/open-sans/opensans-semibold-webfont.woff')
+      format('woff');
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./assets/fonts/open-sans/opensans-bold-webfont.woff2')
+      format('woff2'),
+    url('./assets/fonts/open-sans/opensans-bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* CSS resets & generic styles */
+html {
+  text-rendering: optimizeLegibility !important;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans';
+  font-size: 1rem;
+  color: var(--color-text-01);
+  font-weight: 400;
+  line-height: 1.625;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  body {
+    font-size: 1.0625rem;
+    line-height: 1.77;
+    letter-spacing: 0;
+  }
+}

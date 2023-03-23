@@ -1,0 +1,108 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
+
+<Meta title="Base/Colors" />
+
+# Colors
+These are the different colors we use on Axis.com
+We have functions for using them and should not be accessed directly.
+
+
+@use '@styles/color';
+
+## Variables
+**Function:** color.var($color)
+
+<ColorPalette>
+  <ColorItem
+    title="Colors"
+    subtitle="Single value colors"
+    colors={{ 
+      'white': '#FFF', 
+      'black': '#000', 
+      }}
+  />
+</ColorPalette>
+
+## Maps
+**Function:** color.map($color, $variant) -- defaults to variant 4
+
+<ColorPalette>
+  <ColorItem
+    title="Gray"
+    subtitle="Default is variant 4"
+    colors={{ 
+      '1': '#E6E5E5',
+      '2': '#CCCCCC',
+      '3': '---',
+      '4': '#8C8C8C',
+      '5': '#666',
+      '6': '#555',
+      '7': '#444',
+      '8': '#333',
+    }}
+  />
+  <ColorItem 
+    title="Warm gray" 
+    subtitle="Default is variant 4" 
+    colors={{ 
+      '1': '#FAF8F6',
+      '2': '---',
+      '3':  '#E6E3E0',
+      '4': '#D8CFC6',
+      '5': '---',
+      '6': '#9A8B7D',
+      '7': '---',
+      '8': '---',  
+    }} 
+  />
+  <ColorItem 
+    title="Red" 
+    subtitle="Default is variant 4" 
+    colors={{ 
+      '1': '#FFF5F7',
+      '2': '---',
+      '3': '---',
+      '4': '#FF0033',
+      '5': '---',
+      '6': '#B5121B',
+      '7': '#670014',
+    }} 
+  />
+  <ColorItem
+    title="Green"
+    subtitle="Woop woop"
+    colors={{
+      '3': '---',
+      '4': '---',
+      '5': '---',
+    }}
+  />
+  <ColorItem
+    title="Blue"
+    subtitle="Default is variant 4"
+    colors={{
+      '1': '#EFF9FF',
+      '2': '#72CDF4',
+      '3': '---',
+      '4': '#009DDC',
+      '5': '---',
+      '6': '---',
+      '7': '#004966',
+    }}
+  />
+  <ColorItem
+    title="Blue"
+    subtitle="Default is variant 4"
+    colors={{
+      '1': '#FFFAE9',
+      '2': '#FFF0C5',
+      '3': '#FFDB6E',
+      '4': '#FFCC33',
+      '5': '#F5C430',
+      '6': '#E7AC00',
+      '7': '#BC8D00',
+      '8': '#8D6900',
+    }}
+  />
+</ColorPalette>
+
